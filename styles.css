@@ -1,3 +1,24 @@
-p {
+body {
   font-family: 'Montserrat', sans-serif;
+  marign: 0px;
+  background: #2B2733;
+  color: #CBC9CF;
+}
+
+.categoryOptions{
+  display:flex;
+  justify-content: space-between;
+}
+
+.icon{
+  max-height: 20px;
+}
+
+.study{
+  border: solid 1px white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 10px;
+  padding: 20px 40px;
 }
