@@ -1,3 +1,16 @@
 p {
   font-family: 'Montserrat', sans-serif;
 }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: #CBC9CF;
+  background:#2B2733;
+  margin: 0;
+}
+
+.categoryOptions {
+  border: 2px solid pink;
+  display: flex;
+  height: 40px;
+}
