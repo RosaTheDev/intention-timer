@@ -52,6 +52,10 @@ body {
   padding: 10px 50px;
 }
 
+.studySelected {
+  border: solid 1px #B3FD78;
+}
+
 .meditate {
   border: solid 1px white;
   border-radius: 5px;
@@ -133,4 +137,8 @@ body {
 
 .loggedActivities {
   text-align: center;
+}
+
+.hidden {
+  display: none;
 }
