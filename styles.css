@@ -1,24 +1,57 @@
 body {
   font-family: 'Montserrat', sans-serif;
-  marign: 0px;
+  margin: 0px;
   background: #2B2733;
   color: #CBC9CF;
 }
 
-.categoryOptions{
+.topBanner {
+  display: flex;
+  justify-content: center;
+  background-color: #46424D;
+  font-size: 31px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: -20px;
+}
+
+.mainView {
+  display: flex;
+  flex-direction: row;
+}
+
+.mainBox {
+  background: #46424D;
+  padding: 20px;
+  margin: 20px;
+}
+
+.leftPanel {
+  margin: 20px;
+  width: 70%;
+  border-right: 5px solid #46424D;
+}
+
+.categoryOptions {
   display:flex;
   justify-content: space-between;
 }
 
-.icon{
+.icon {
   max-height: 20px;
 }
 
-.study{
+.study {
   border: solid 1px white;
   display: flex;
   align-items: center;
   flex-direction: column;
   margin: 10px;
   padding: 20px 40px;
+}
+
+.rightPanel {
+  margin: 20px;
+  width: 30%;
+  height: 100vh;
 }
