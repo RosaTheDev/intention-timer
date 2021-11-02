@@ -22,8 +22,10 @@ body {
 
 .mainBox {
   background: #46424D;
-  padding: 20px;
-  margin: 20px;
+  padding: 20px 15%;
+  margin-right: 20px;
+  border-radius: 5px;
+  box-shadow: 10px 5px 5px #26222D;
 }
 
 .leftPanel {
@@ -43,15 +45,92 @@ body {
 
 .study {
   border: solid 1px white;
+  border-radius: 5px;
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin: 10px;
-  padding: 20px 40px;
+  padding: 10px 50px;
+}
+
+.meditate {
+  border: solid 1px white;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px 50px;
+}
+
+.exercise {
+  border: solid 1px white;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px 50px;
+}
+
+.categoryOptions p {
+  margin-top: 5px;
+  margin-bottom: 0px;
 }
 
 .rightPanel {
   margin: 20px;
   width: 30%;
   height: 100vh;
+}
+
+.timer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.goalsTextLine {
+  background-color: transparent;
+  color: #eeeeee;
+  outline: none;
+  outline-style: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: solid #eeeeee 1px;
+  padding: 3px 10px;
+  width: 100%;
+}
+
+.minutesTextLine {
+    background-color: transparent;
+    color: #eeeeee;
+    outline: none;
+    outline-style: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid #eeeeee 1px;
+    padding: 3px 10px;
+}
+
+.secondsTextLine {
+  background-color: transparent;
+  color: #eeeeee;
+  outline: none;
+  outline-style: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: solid #eeeeee 1px;
+  padding: 3px 10px;
+}
+
+.minutes {
+  width: 50%;
+}
+
+.seconds {
+  width: 50%;
+}
+
+.loggedActivities {
+  text-align: center;
 }
