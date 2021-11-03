@@ -30,18 +30,32 @@
           </div>
           <div class="userGoals">
             <h1>What would you like to accomplish during this time?</h1>
-            <input type="text" class="goalsTextLine" />
+            <input type="text" class="goalsTextLine" min="1" name="userInputGoalDescription"/>
+            <div class="descriptionErrorMessage hidden">
+              <img src="./assets/warning.svg" class="descriptionErrorMessageIcon hidden">A description is required.
+            </div>
             <div class="timer">
               <div class="minutes">
                 <p>Minutes
                 <br />
-                <input type="text" class="minutesTextLine" />
+                <input class="minutesTextLine" type="number" min="0" max="999" onkeydown="javascript: return event.keyCode === 8 ||
+event.keyCode === 46 ? true : !isNaN(Number(event.key))" name="userInputMinutes" />
+                <div class="minutesErrorMessage hidden">
+                  <img src="./assets/warning.svg" class="minutesErrorMessageIcon hidden">Specify a value between 0-999.
+                </div>
               </div>
               <div class="seconds">
                 <p>Seconds
                 <br />
-                <input type="text" class="secondsTextLine" />
+                <input class="secondsTextLine"  type="number" min="0" max="59" onkeydown="javascript: return event.keyCode === 8 ||
+event.keyCode === 46 ? true : !isNaN(Number(event.key))" name="userInputSeconds" />
+                <div class="secondsErrorMessage hidden">
+                  <img src="./assets/warning.svg" class="secondsErrorMessageIcon hidden">Specify a value between 0-59.
+                </div>
               </div>
+            </div>
+            <div class="startActitivyButtonArea">
+              <button class="startActivityButton">START ACTIVITY</button>
             </div>
           </div>
         </div>
