@@ -14,8 +14,15 @@ var minutesErrorMessage = document.querySelector('.minutesErrorMessage');
 var minutesErrorMessageIcon = document.querySelector('.minutesErrorMessageIcon');
 var secondsErrorMessage = document.querySelector('.secondsErrorMessage');
 var secondsErrorMessageIcon = document.querySelector('.secondsErrorMessageIcon');
+var mainBox = document.querySelector('.mainBox');
+var timerView = document.querySelector('.timerView');
+var defaultLeftPanelTitle = document.querySelector('.defaultLeftPanelTitle');
+var secondaryLeftPanelTitle = document.querySelector('.secondaryLeftPanelTitle');
+
+
 var userInputCategory;
 var loggedUserInput = [];
+
 function changeStudyButtonColor() {
   defaultColor();
   userInputCategory = "study";
@@ -67,7 +74,7 @@ function formValidation() {
      secondsErrorMessage.classList.remove("hidden");
     return false
    } else {
-     return true 
+     return true
    }
 }
 
@@ -89,10 +96,18 @@ function switchTimerView(){
   currentActivity = new Activity(userInputCategory, userInputGoalDescription, userInputMinutes, userInputSeconds);
   if(formValidation() === true) {
     loggedUserInput.push(currentActivity);
-    console.log(loggedUserInput[0]);
+    mainBox.classList.add("hidden");
+    timerView.classList.remove("hidden");
+    defaultLeftPanelTitle.classList.add('hidden');
+    secondaryLeftPanelTitle.classList.remove('hidden');
+
+
   } else {
-    return console.log('IT does not Work')
+    return console.log('IT does not Work');
   }
+
+
+
   //After all of that is done, then complete the function with:
   //mainBox.innerHTML to hide form and show new circle timer
   ////needs to be designed

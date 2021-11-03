@@ -20,7 +20,8 @@ body {
   flex-direction: row;
 }
 
-.mainBox {
+.mainBox,
+.timerView {
   color: #FFF;
   background: #46424D;
   padding: 20px 15%;
