@@ -39,7 +39,15 @@ body {
   justify-content: space-between;
 }
 
-.icon {
+.iconStudy {
+  max-height: 20px;
+}
+
+.iconMeditate {
+  max-height: 20px;
+}
+
+.iconExercise {
   max-height: 20px;
 }
 
@@ -113,6 +121,7 @@ body {
     border-right: none;
     border-bottom: solid #eeeeee 1px;
     padding: 3px 10px;
+    width: 75%;
 }
 
 .secondsTextLine {
@@ -125,6 +134,7 @@ body {
   border-right: none;
   border-bottom: solid #eeeeee 1px;
   padding: 3px 10px;
+  width: 75%;
 }
 
 .minutes {
