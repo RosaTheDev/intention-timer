@@ -92,20 +92,13 @@ function switchTimerView(){
   console.log("button works")
   formValidation();
   console.log("why does this still show/run when errors pop up from the function above?")
-  //if formValidation failed, don't run the rest of switchTimerView - still need programmed
   currentActivity = new Activity(userInputCategory, userInputGoalDescription, userInputMinutes, userInputSeconds);
   if(formValidation() === true) {
     loggedUserInput.push(currentActivity);
-    mainBox.classList.add("hidden");
-    timerView.classList.remove("hidden");
-    defaultLeftPanelTitle.classList.add('hidden');
-    secondaryLeftPanelTitle.classList.remove('hidden');
-
-
+    hideMainView();
   } else {
     return console.log('IT does not Work');
   }
-
 
 
   //After all of that is done, then complete the function with:
@@ -115,6 +108,12 @@ function switchTimerView(){
   ////circle timer color should match the color of the activity selected
 }
 
+function hideMainView() {
+  mainBox.classList.add("hidden");
+  timerView.classList.remove("hidden");
+  defaultLeftPanelTitle.classList.add('hidden');
+  secondaryLeftPanelTitle.classList.remove('hidden');
+}
 
 
 studyButton.addEventListener('click', changeStudyButtonColor)
