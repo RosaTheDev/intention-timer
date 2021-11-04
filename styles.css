@@ -20,8 +20,22 @@ body {
   flex-direction: row;
 }
 
-.mainBox,
+.mainBox {
+   color: #FFF;
+  background: #46424D;
+  padding: 20px 15%;
+  margin-right: 20px;
+  border-radius: 5px;
+  box-shadow: 10px 5px 5px #26222D;
+  overflow: hidden;
+  min-height: 500px;
+}
+
 .timerView {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   color: #FFF;
   background: #46424D;
   padding: 20px 15%;
@@ -31,6 +45,16 @@ body {
   overflow: hidden;
   min-height: 500px;
 }
+
+.timerInput {
+    margin-bottom: 40px;
+    font-size: 60px;
+    font-weight: 800;
+}
+
+.goalDescriptionTimerView {
+        margin-bottom: 10px;
+  }
 
 .leftPanel {
   margin: 20px;
@@ -66,6 +90,7 @@ body {
 
 .studySelected {
   border: solid 1px #B3FD78;
+  /* color: '#B3FD78'; */
 }
 
 .meditate {
@@ -212,17 +237,11 @@ body {
   display:flex;
   justify-content: center;
   align-items: center;
-  height: 300px;
-  width: 300px;
+  height: 200px;
+  width: 200px;
   border-radius: 50%;
-  border: 2px solid white;
+  border: 3px solid white;
   background-color: #00000000;
+  color: white;
 }
-
-  .goalDescriptionTimerView {
-
-  }
-
-  .timerInputTimerView {
-    border: 10px solid pink;
-  }
+ 
