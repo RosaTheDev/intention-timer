@@ -19,16 +19,19 @@ var timerView = document.querySelector('.timerView');
 var defaultLeftPanelTitle = document.querySelector('.defaultLeftPanelTitle');
 var secondaryLeftPanelTitle = document.querySelector('.secondaryLeftPanelTitle');
 var goalDescriptionTimerView = document.querySelector('.goalDescriptionTimerView')
-var timerInput = document.querySelector('.timerInput')
+var timerInput = document.querySelector('.timerInput');
+var timerColor = document.querySelector('.timerButton');
 
 var userInputCategory;
 var loggedUserInput = [];
+
 
 function changeStudyButtonColor() {
   defaultColor();
   userInputCategory = "study";
   studyButton.style.border = 'solid 1px #B3FD78';
   studyButton.style.color = '#B3FD78';
+  timerColor.style.border = "1px solid #B3FD78";
   studyIcon.setAttribute('src', './assets/study-active.svg');
 };
 
@@ -37,6 +40,7 @@ function changeMeditateButtonColor() {
   userInputCategory = "meditate";
   meditateButton.style.border = 'solid 1px #C278FD';
   meditateButton.style.color = '#C278FD';
+  timerColor.style.border = "1px solid #C278FD";
   meditateIcon.setAttribute('src', './assets/meditate-active.svg');
 };
 
@@ -45,6 +49,7 @@ function changeExerciseButtonColor() {
   userInputCategory = "exercise";
   exerciseButton.style.border = 'solid 1px #FD8078';
   exerciseButton.style.color = '#FD8078';
+  timerColor.style.border = "1px solid #FD8078";
   exerciseIcon.setAttribute('src', './assets/exercise-active.svg');
 };
 
