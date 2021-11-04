@@ -18,7 +18,8 @@ var mainBox = document.querySelector('.mainBox');
 var timerView = document.querySelector('.timerView');
 var defaultLeftPanelTitle = document.querySelector('.defaultLeftPanelTitle');
 var secondaryLeftPanelTitle = document.querySelector('.secondaryLeftPanelTitle');
-
+var goalDescriptionTimerView = document.querySelector('.goalDescriptionTimerView')
+var timerInput = document.querySelector('.timerInput')
 
 var userInputCategory;
 var loggedUserInput = [];
@@ -89,15 +90,12 @@ function resetErrorMessage(){
 }
 
 function switchTimerView(){
-  console.log("button works")
   formValidation();
-  console.log("why does this still show/run when errors pop up from the function above?")
   currentActivity = new Activity(userInputCategory, userInputGoalDescription, userInputMinutes, userInputSeconds);
   if(formValidation() === true) {
     loggedUserInput.push(currentActivity);
     hideMainView();
-  } else {
-    return console.log('IT does not Work');
+    showTimer();
   }
 
 
@@ -114,6 +112,15 @@ function hideMainView() {
   defaultLeftPanelTitle.classList.add('hidden');
   secondaryLeftPanelTitle.classList.remove('hidden');
 }
+
+function showTimer() {
+goalDescriptionTimerView.innerHTML = `${userInputGoalDescription.value}`
+console.log(userInputGoalDescription.value)
+timerInput.innerHTML = `${userInputMinutes.value} : ${userInputSeconds.value}`
+
+}
+
+//helper function that will be called in switchTimerView function that will show the timer
 
 
 studyButton.addEventListener('click', changeStudyButtonColor)
