@@ -20,7 +20,8 @@ body {
   flex-direction: row;
 }
 
-.mainBox {
+.mainBox,
+.timerView {
   color: #FFF;
   background: #46424D;
   padding: 20px 15%;
@@ -28,6 +29,7 @@ body {
   border-radius: 5px;
   box-shadow: 10px 5px 5px #26222D;
   overflow: hidden;
+  min-height: 500px;
 }
 
 .leftPanel {
@@ -205,3 +207,22 @@ body {
 .hidden {
   display: none;
 }
+
+.timerButton {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  border: 2px solid white;
+  background-color: #00000000;
+}
+
+  .goalDescriptionTimerView {
+
+  }
+
+  .timerInputTimerView {
+    border: 10px solid pink;
+  }

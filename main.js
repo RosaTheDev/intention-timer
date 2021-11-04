@@ -14,13 +14,24 @@ var minutesErrorMessage = document.querySelector('.minutesErrorMessage');
 var minutesErrorMessageIcon = document.querySelector('.minutesErrorMessageIcon');
 var secondsErrorMessage = document.querySelector('.secondsErrorMessage');
 var secondsErrorMessageIcon = document.querySelector('.secondsErrorMessageIcon');
+var mainBox = document.querySelector('.mainBox');
+var timerView = document.querySelector('.timerView');
+var defaultLeftPanelTitle = document.querySelector('.defaultLeftPanelTitle');
+var secondaryLeftPanelTitle = document.querySelector('.secondaryLeftPanelTitle');
+var goalDescriptionTimerView = document.querySelector('.goalDescriptionTimerView')
+var timerInput = document.querySelector('.timerInput');
+var timerColor = document.querySelector('.timerButton');
+
 var userInputCategory;
 var loggedUserInput = [];
+
+
 function changeStudyButtonColor() {
   defaultColor();
   userInputCategory = "study";
   studyButton.style.border = 'solid 1px #B3FD78';
   studyButton.style.color = '#B3FD78';
+  timerColor.style.border = "1px solid #B3FD78";
   studyIcon.setAttribute('src', './assets/study-active.svg');
 };
 
@@ -29,6 +40,7 @@ function changeMeditateButtonColor() {
   userInputCategory = "meditate";
   meditateButton.style.border = 'solid 1px #C278FD';
   meditateButton.style.color = '#C278FD';
+  timerColor.style.border = "1px solid #C278FD";
   meditateIcon.setAttribute('src', './assets/meditate-active.svg');
 };
 
@@ -37,6 +49,7 @@ function changeExerciseButtonColor() {
   userInputCategory = "exercise";
   exerciseButton.style.border = 'solid 1px #FD8078';
   exerciseButton.style.color = '#FD8078';
+  timerColor.style.border = "1px solid #FD8078";
   exerciseIcon.setAttribute('src', './assets/exercise-active.svg');
 };
 
@@ -67,7 +80,7 @@ function formValidation() {
      secondsErrorMessage.classList.remove("hidden");
     return false
    } else {
-     return true 
+     return true
    }
 }
 
@@ -82,17 +95,15 @@ function resetErrorMessage(){
 }
 
 function switchTimerView(){
-  console.log("button works")
   formValidation();
-  console.log("why does this still show/run when errors pop up from the function above?")
-  //if formValidation failed, don't run the rest of switchTimerView - still need programmed
   currentActivity = new Activity(userInputCategory, userInputGoalDescription, userInputMinutes, userInputSeconds);
   if(formValidation() === true) {
     loggedUserInput.push(currentActivity);
-    console.log(loggedUserInput[0]);
-  } else {
-    return console.log('IT does not Work')
+    hideMainView();
+    showTimer();
   }
+
+
   //After all of that is done, then complete the function with:
   //mainBox.innerHTML to hide form and show new circle timer
   ////needs to be designed
@@ -100,6 +111,21 @@ function switchTimerView(){
   ////circle timer color should match the color of the activity selected
 }
 
+function hideMainView() {
+  mainBox.classList.add("hidden");
+  timerView.classList.remove("hidden");
+  defaultLeftPanelTitle.classList.add('hidden');
+  secondaryLeftPanelTitle.classList.remove('hidden');
+}
+
+function showTimer() {
+goalDescriptionTimerView.innerHTML = `${userInputGoalDescription.value}`
+console.log(userInputGoalDescription.value)
+timerInput.innerHTML = `${userInputMinutes.value} : ${userInputSeconds.value}`
+
+}
+
+//helper function that will be called in switchTimerView function that will show the timer
 
 
 studyButton.addEventListener('click', changeStudyButtonColor)
