@@ -8,7 +8,19 @@ class Activity {
         this.id = id;
     }
 
-    startTimer() {
+    startTimer(minutes, seconds) {
+      setInterval(function(){
+        if(seconds > 0){
+          seconds = seconds -1;
+        } else if (minutes > 0) {
+          minutes = minutes -1;
+          seconds = 59;
+        } else {
+          return timerColor.innerText = `COMPLETE`
+        }
+
+
+      }, 1000)
 
     }
 
@@ -20,4 +32,3 @@ class Activity {
 
     }
 }
-// module.exports = Activity;

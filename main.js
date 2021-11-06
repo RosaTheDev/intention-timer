@@ -6,9 +6,9 @@ var meditateIcon = document.querySelector('.iconMeditate');
 var exerciseButton = document.querySelector('.exercise');
 var exerciseIcon = document.querySelector('.iconExercise');
 var startActivityButton = document.querySelector('.startActivityButton');
-var userInputGoalDescription = document.querySelector('input[name="userInputGoalDescription"]');
-var userInputMinutes = document.querySelector('input[name="userInputMinutes"]');
-var userInputSeconds = document.querySelector('input[name="userInputSeconds"]');
+var userInputGoalDescription = document.querySelector('.goalsTextLine');
+var userInputMinutes = document.querySelector('.minutesTextLine');
+var userInputSeconds = document.querySelector('.secondsTextLine');
 var descriptionErrorMessage = document.querySelector('.descriptionErrorMessage');
 var descriptionErrorMessageIcon = document.querySelector('.descriptionErrorMessageIcon');
 var minutesErrorMessage = document.querySelector('.minutesErrorMessage');
@@ -25,6 +25,22 @@ var timerColor = document.querySelector('.timerButton');
 
 var userInputCategory;
 var loggedUserInput = [];
+var currentActivity;
+
+
+studyButton.addEventListener('click', changeStudyButtonColor)
+
+meditateButton.addEventListener('click', changeMeditateButtonColor)
+
+exerciseButton.addEventListener('click', changeExerciseButtonColor)
+
+startActivityButton.addEventListener('click', switchTimerView)
+
+timerColor.addEventListener('click', countDown)
+
+function countDown() {
+  currentActivity.startTimer(currentActivity.minutes, currentActivity.seconds);
+};
 
 
 function changeStudyButtonColor() {
@@ -97,7 +113,7 @@ function resetErrorMessage(){
 
 function switchTimerView(){
   formValidation();
-  currentActivity = new Activity(userInputCategory, userInputGoalDescription, userInputMinutes, userInputSeconds);
+  currentActivity = new Activity(userInputCategory, userInputGoalDescription.value, userInputMinutes.value, userInputSeconds.value);
   if(formValidation() === true) {
     loggedUserInput.push(currentActivity);
     hideMainView();
@@ -119,31 +135,3 @@ timerInput.innerHTML = `${userInputMinutes.value} : ${userInputSeconds.value}`
 };
 
 var totalTime = (userInputMinutes * 60) + userInputSeconds
-
-function startCountDown(totalTime, display) {
-  
-  // var timer = duration, minutes, seconds;
-  //     setInterval(function () {
-  //         minutes = parseInt(timer / 60, 10);
-  //         seconds = parseInt(timer % 60, 10);
-  //
-  //         minutes = minutes < 10 ? "0" + minutes : minutes;
-  //         seconds = seconds < 10 ? "0" + seconds : seconds;
-  //
-  //         display.textContent = minutes + ":" + seconds;
-  //
-  //         if (--timer < 0) {
-  //             timer = duration;
-  //         }
-  //     }, 1000);
-}
-
-studyButton.addEventListener('click', changeStudyButtonColor)
-
-meditateButton.addEventListener('click', changeMeditateButtonColor)
-
-exerciseButton.addEventListener('click', changeExerciseButtonColor)
-
-startActivityButton.addEventListener('click', switchTimerView)
-
-timerColor.addEventListener('click', startCountDown)
