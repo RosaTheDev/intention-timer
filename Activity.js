@@ -18,9 +18,10 @@ class Activity {
         } else {
           return timerColor.innerText = `COMPLETE`
         }
-
-
-      }, 1000)
+          minutes = minutes.toString().padStart(2, '0');
+          seconds = seconds.toString().padStart(2, '0');
+          timerInput.innerText = `${minutes} : ${seconds}`
+        }, 1000)
 
     }
 

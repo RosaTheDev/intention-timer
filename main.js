@@ -26,17 +26,15 @@ var timerColor = document.querySelector('.timerButton');
 var userInputCategory;
 var loggedUserInput = [];
 var currentActivity;
+var totalTime = (userInputMinutes * 60) + userInputSeconds;
 
 
 studyButton.addEventListener('click', changeStudyButtonColor)
-
 meditateButton.addEventListener('click', changeMeditateButtonColor)
-
 exerciseButton.addEventListener('click', changeExerciseButtonColor)
-
 startActivityButton.addEventListener('click', switchTimerView)
-
 timerColor.addEventListener('click', countDown)
+
 
 function countDown() {
   currentActivity.startTimer(currentActivity.minutes, currentActivity.seconds);
@@ -131,7 +129,7 @@ function hideMainView() {
 function showTimer() {
 goalDescriptionTimerView.innerHTML = `${userInputGoalDescription.value}`
 console.log(userInputGoalDescription.value)
+userInputMinutes.value = userInputMinutes.value.toString().padStart(2, '0');
+userInputSeconds.value = userInputSeconds.value.toString().padStart(2, '0');
 timerInput.innerHTML = `${userInputMinutes.value} : ${userInputSeconds.value}`
 };
-
-var totalTime = (userInputMinutes * 60) + userInputSeconds
