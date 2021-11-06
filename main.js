@@ -103,31 +103,40 @@ function switchTimerView(){
     hideMainView();
     showTimer();
   }
-
-
-  //After all of that is done, then complete the function with:
-  //mainBox.innerHTML to hide form and show new circle timer
-  ////needs to be designed
-  ////needs to show time from form input
-  ////circle timer color should match the color of the activity selected
-}
+};
 
 function hideMainView() {
   mainBox.classList.add("hidden");
   timerView.classList.remove("hidden");
   defaultLeftPanelTitle.classList.add('hidden');
   secondaryLeftPanelTitle.classList.remove('hidden');
-}
+};
 
 function showTimer() {
 goalDescriptionTimerView.innerHTML = `${userInputGoalDescription.value}`
 console.log(userInputGoalDescription.value)
 timerInput.innerHTML = `${userInputMinutes.value} : ${userInputSeconds.value}`
+};
 
+var totalTime = (userInputMinutes * 60) + userInputSeconds
+
+function startCountDown(totalTime, display) {
+  
+  // var timer = duration, minutes, seconds;
+  //     setInterval(function () {
+  //         minutes = parseInt(timer / 60, 10);
+  //         seconds = parseInt(timer % 60, 10);
+  //
+  //         minutes = minutes < 10 ? "0" + minutes : minutes;
+  //         seconds = seconds < 10 ? "0" + seconds : seconds;
+  //
+  //         display.textContent = minutes + ":" + seconds;
+  //
+  //         if (--timer < 0) {
+  //             timer = duration;
+  //         }
+  //     }, 1000);
 }
-
-//helper function that will be called in switchTimerView function that will show the timer
-
 
 studyButton.addEventListener('click', changeStudyButtonColor)
 
@@ -136,3 +145,5 @@ meditateButton.addEventListener('click', changeMeditateButtonColor)
 exerciseButton.addEventListener('click', changeExerciseButtonColor)
 
 startActivityButton.addEventListener('click', switchTimerView)
+
+timerColor.addEventListener('click', startCountDown)
