@@ -45,8 +45,7 @@
               <div class="minutes">
                 <p>Minutes
                 <br />
-                <input class="minutesTextLine" type="number" min="0" max="999" onkeydown="javascript: return event.keyCode === 8 ||
-event.keyCode === 46 ? true : !isNaN(Number(event.key))" name="userInputMinutes" />
+                <input class="minutesTextLine" type="number" min="0" max="99"/>
                 <div class="minutesErrorMessage hidden">
                   <img src="./assets/warning.svg" class="minutesErrorMessageIcon hidden">Specify a value between 0-999.
                 </div>
@@ -54,8 +53,7 @@ event.keyCode === 46 ? true : !isNaN(Number(event.key))" name="userInputMinutes"
               <div class="seconds">
                 <p>Seconds
                 <br />
-                <input class="secondsTextLine"  type="number" min="0" max="59" onkeydown="javascript: return event.keyCode === 8 ||
-event.keyCode === 46 ? true : !isNaN(Number(event.key))" name="userInputSeconds" />
+                <input class="secondsTextLine"  type="number" min="0" max="59"/>
                 <div class="secondsErrorMessage hidden">
                   <img src="./assets/warning.svg" class="secondsErrorMessageIcon hidden">Specify a value between 0-59.
                 </div>

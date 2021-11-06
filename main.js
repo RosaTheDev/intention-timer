@@ -6,9 +6,9 @@ var meditateIcon = document.querySelector('.iconMeditate');
 var exerciseButton = document.querySelector('.exercise');
 var exerciseIcon = document.querySelector('.iconExercise');
 var startActivityButton = document.querySelector('.startActivityButton');
-var userInputGoalDescription = document.querySelector('input[name="userInputGoalDescription"]');
-var userInputMinutes = document.querySelector('input[name="userInputMinutes"]');
-var userInputSeconds = document.querySelector('input[name="userInputSeconds"]');
+var userInputGoalDescription = document.querySelector('.goalsTextLine');
+var userInputMinutes = document.querySelector('.minutesTextLine');
+var userInputSeconds = document.querySelector('.secondsTextLine');
 var descriptionErrorMessage = document.querySelector('.descriptionErrorMessage');
 var descriptionErrorMessageIcon = document.querySelector('.descriptionErrorMessageIcon');
 var minutesErrorMessage = document.querySelector('.minutesErrorMessage');
@@ -25,6 +25,20 @@ var timerColor = document.querySelector('.timerButton');
 
 var userInputCategory;
 var loggedUserInput = [];
+var currentActivity;
+var totalTime = (userInputMinutes * 60) + userInputSeconds;
+
+
+studyButton.addEventListener('click', changeStudyButtonColor)
+meditateButton.addEventListener('click', changeMeditateButtonColor)
+exerciseButton.addEventListener('click', changeExerciseButtonColor)
+startActivityButton.addEventListener('click', switchTimerView)
+timerColor.addEventListener('click', countDown)
+
+
+function countDown() {
+  currentActivity.startTimer(currentActivity.minutes, currentActivity.seconds);
+};
 
 
 function changeStudyButtonColor() {
@@ -97,42 +111,25 @@ function resetErrorMessage(){
 
 function switchTimerView(){
   formValidation();
-  currentActivity = new Activity(userInputCategory, userInputGoalDescription, userInputMinutes, userInputSeconds);
+  currentActivity = new Activity(userInputCategory, userInputGoalDescription.value, userInputMinutes.value, userInputSeconds.value);
   if(formValidation() === true) {
     loggedUserInput.push(currentActivity);
     hideMainView();
     showTimer();
   }
-
-
-  //After all of that is done, then complete the function with:
-  //mainBox.innerHTML to hide form and show new circle timer
-  ////needs to be designed
-  ////needs to show time from form input
-  ////circle timer color should match the color of the activity selected
-}
+};
 
 function hideMainView() {
   mainBox.classList.add("hidden");
   timerView.classList.remove("hidden");
   defaultLeftPanelTitle.classList.add('hidden');
   secondaryLeftPanelTitle.classList.remove('hidden');
-}
+};
 
 function showTimer() {
 goalDescriptionTimerView.innerHTML = `${userInputGoalDescription.value}`
 console.log(userInputGoalDescription.value)
+userInputMinutes.value = userInputMinutes.value.toString().padStart(2, '0');
+userInputSeconds.value = userInputSeconds.value.toString().padStart(2, '0');
 timerInput.innerHTML = `${userInputMinutes.value} : ${userInputSeconds.value}`
-
-}
-
-//helper function that will be called in switchTimerView function that will show the timer
-
-
-studyButton.addEventListener('click', changeStudyButtonColor)
-
-meditateButton.addEventListener('click', changeMeditateButtonColor)
-
-exerciseButton.addEventListener('click', changeExerciseButtonColor)
-
-startActivityButton.addEventListener('click', switchTimerView)
+};
