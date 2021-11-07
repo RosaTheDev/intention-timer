@@ -38,6 +38,18 @@ timerColor.addEventListener('click', countDown)
 
 function countDown() {
   currentActivity.startTimer(currentActivity.minutes, currentActivity.seconds);
+  disableButton();
+};
+
+// FIX BUG:
+// This function will disable the timer from being clicked multiple times and restarting each time
+
+function disableButton() {
+  timerColor.disabled = true;
+};
+
+function resetStart() {
+  timerColor.disabled = false;
 };
 
 
@@ -97,8 +109,7 @@ function formValidation() {
    } else {
      return true
    }
-}
-
+};
 
 function resetErrorMessage(){
   descriptionErrorMessageIcon.classList.add("hidden");
@@ -107,7 +118,7 @@ function resetErrorMessage(){
   minutesErrorMessage.classList.add("hidden");
   secondsErrorMessageIcon.classList.add("hidden");
   secondsErrorMessage.classList.add("hidden");
-}
+};
 
 function switchTimerView(){
   formValidation();
