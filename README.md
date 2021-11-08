@@ -8,7 +8,7 @@
 
 ## Project specs
 
-  - Instructions and Rubric for this project can be found [HERE.](https://frontend.turing.edu/projects/module-1/romcom-pair.html)
+  - Instructions and Rubric for this project can be found [HERE.](https://frontend.turing.edu/projects/module-1/intention-timer-group.html)
 
 ## Technologies used
 
@@ -28,18 +28,18 @@
 
 ## Example user generated cover:
 
-![Screen Shot 2021-10-24 at 10 10 44 AM](https://user-images.githubusercontent.com/88299275/138602703-c28e8149-67f3-4091-8cc8-336b13184292.png)
+
 
 ## Future Additions
 
- - Implement data validation and error handling into the form
- - When a user single clicks a saved cover, create a modal to view it larger
- - Use of flexbox in the CSS to accomodate for various image file sizes
+ - Expand/Collapse Reflection
+ - Favorite & Re-Do
+ - Pausing the Timer
 
 ## Team wins
 
 - Collaborated and communicated towards each others learning styles and personal needs
 - Expanded knowledge of inner workings of the DOM by manipulating HTML and CSS elements using Javascript
 - Time management
-- Created methods for user interaction and customization
-- Honored and upheld our team DTR
+-
+-
