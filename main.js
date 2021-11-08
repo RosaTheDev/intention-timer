@@ -1,4 +1,3 @@
-
 var studyButton = document.querySelector('.study');
 var studyIcon = document.querySelector('.iconStudy');
 var meditateButton = document.querySelector('.meditate');
@@ -24,9 +23,11 @@ var secondaryLeftPanelTitle = document.querySelector('.secondaryLeftPanelTitle')
 var goalDescriptionTimerView = document.querySelector('.goalDescriptionTimerView')
 var timerInput = document.querySelector('.timerInput');
 var timerColor = document.querySelector('.timerButton');
+var logActivityButton = document.querySelector('.logActivityButton');
 var userInputCategory;
 var loggedUserInput = [];
 var currentActivity;
+var savedActivies = [];
 var totalTime = (userInputMinutes * 60) + userInputSeconds;
 
 
@@ -35,24 +36,36 @@ meditateButton.addEventListener('click', changeMeditateButtonColor)
 exerciseButton.addEventListener('click', changeExerciseButtonColor)
 startActivityButton.addEventListener('click', switchTimerView)
 timerColor.addEventListener('click', countDown)
+logActivityButton.addEventListener('click', logActivity)
 
+function logActivity() {
+  ////it adds the object from the currentActivity variable to savedAcivities array
+  console.log("button works")
+  savedActivies.unshift(currentActivity)
+  console.log(savedActivies)
+  ////past activites updates with a card showing object info
+}
 
 function countDown() {
   currentActivity.startTimer(currentActivity.minutes, currentActivity.seconds);
   disableButton();
 };
 
-// FIX BUG:
-// This function will disable the timer from being clicked multiple times and restarting each time
-
 function disableButton() {
   timerColor.disabled = true;
 };
 
-function resetStart() {
-  timerColor.disabled = false;
-};
+function show(elements) {
+  for (var i = 0; i < elements.length; i++) {
+    elements[i].classList.remove('hidden');
+  }
+}
 
+function hide(elements) {
+  for (var i = 0; i < elements.length; i++) {
+    elements[i].classList.add('hidden');
+  }
+}
 
 function changeStudyButtonColor() {
   defaultColor();
@@ -96,20 +109,16 @@ function defaultColor() {
 function formValidation() {
   resetErrorMessage()
   if (!userInputCategory) {
-    categoryErrorMessageIcon.classList.remove("hidden");
-    categoryErrorMessage.classList.remove("hidden");
+    show([categoryErrorMessageIcon, categoryErrorMessage]);
     return false
   } else if (!userInputGoalDescription.value) {
-    descriptionErrorMessageIcon.classList.remove("hidden");
-    descriptionErrorMessage.classList.remove("hidden");
+    show([descriptionErrorMessageIcon, descriptionErrorMessage]);
     return false
   } else if (!userInputMinutes.value) {
-    minutesErrorMessageIcon.classList.remove("hidden");
-    minutesErrorMessage.classList.remove("hidden");
+    show([minutesErrorMessageIcon, minutesErrorMessage]);
     return false
   } else if (!userInputSeconds.value) {
-    secondsErrorMessageIcon.classList.remove("hidden");
-    secondsErrorMessage.classList.remove("hidden");
+    show([secondsErrorMessageIcon, secondsErrorMessage]);
     return false
    } else {
      return true
@@ -117,14 +126,7 @@ function formValidation() {
 };
 
 function resetErrorMessage(){
-  categoryErrorMessageIcon.classList.add("hidden");
-  categoryErrorMessage.classList.add("hidden");
-  descriptionErrorMessageIcon.classList.add("hidden");
-  descriptionErrorMessage.classList.add("hidden");
-  minutesErrorMessageIcon.classList.add("hidden");
-  minutesErrorMessage.classList.add("hidden");
-  secondsErrorMessageIcon.classList.add("hidden");
-  secondsErrorMessage.classList.add("hidden");
+  hide([categoryErrorMessageIcon, categoryErrorMessage, descriptionErrorMessageIcon, descriptionErrorMessage, minutesErrorMessageIcon, minutesErrorMessage, secondsErrorMessageIcon, secondsErrorMessage]);
 };
 
 function switchTimerView(){
@@ -138,15 +140,12 @@ function switchTimerView(){
 };
 
 function hideMainView() {
-  mainBox.classList.add("hidden");
-  timerView.classList.remove("hidden");
-  defaultLeftPanelTitle.classList.add('hidden');
-  secondaryLeftPanelTitle.classList.remove('hidden');
+  hide([mainBox, defaultLeftPanelTitle]);
+  show([timerView, secondaryLeftPanelTitle]);
 };
 
 function showTimer() {
 goalDescriptionTimerView.innerHTML = `${userInputGoalDescription.value}`
-console.log(userInputGoalDescription.value)
 userInputMinutes.value = userInputMinutes.value.toString().padStart(2, '0');
 userInputSeconds.value = userInputSeconds.value.toString().padStart(2, '0');
 timerInput.innerHTML = `${userInputMinutes.value} : ${userInputSeconds.value}`

@@ -85,11 +85,6 @@ body {
   cursor: pointer;
 }
 
-/* .studySelected {
-  border: solid 1px #B3FD78;
-  color: '#B3FD78';
-} */
-
 .categoryOptions p {
   margin-top: 5px;
   margin-bottom: 0px;
@@ -171,7 +166,8 @@ body {
   justify-content: flex-end;
 }
 
-.startActivityButton {
+.startActivityButton,
+.logActivityButton {
   border: 0px;
   border-radius: 5px;
   padding: 10px 50px;
@@ -200,4 +196,5 @@ body {
   background-color: #00000000;
   color: white;
   cursor: pointer;
+  margin-bottom: 25px;
 }

@@ -16,6 +16,8 @@ class Activity {
           minutes = minutes -1;
           seconds = 59;
         } else {
+          timerInput.innerHTML = `Congrats!`
+          show([logActivityButton])
           return timerColor.innerText = `COMPLETE`
         }
           minutes = minutes.toString().padStart(2, '0');
