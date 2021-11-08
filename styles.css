@@ -21,13 +21,12 @@ body {
 }
 
 .mainBox {
-   color: #FFF;
+  color: #FFF;
   background: #46424D;
   padding: 20px 15%;
   margin-right: 20px;
   border-radius: 5px;
   box-shadow: 10px 5px 5px #26222D;
-  overflow: hidden;
   min-height: 500px;
 }
 
@@ -65,43 +64,17 @@ body {
 .categoryOptions {
   display:flex;
   justify-content: space-between;
+  margin-bottom: 20px;
 }
 
-.iconStudy {
-  max-height: 20px;
-}
-
-.iconMeditate {
-  max-height: 20px;
-}
-
+.iconStudy,
+.iconMeditate,
 .iconExercise {
   max-height: 20px;
 }
 
-.study {
-  border: solid 1px white;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  padding: 10px 50px;
-}
-
-.studySelected {
-  border: solid 1px #B3FD78;
-  /* color: '#B3FD78'; */
-}
-
-.meditate {
-  border: solid 1px white;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  padding: 10px 50px;
-}
-
+.study,
+.meditate,
 .exercise {
   border: solid 1px white;
   border-radius: 5px;
@@ -109,7 +82,13 @@ body {
   align-items: center;
   flex-direction: column;
   padding: 10px 50px;
+  cursor: pointer;
 }
+
+/* .studySelected {
+  border: solid 1px #B3FD78;
+  color: '#B3FD78';
+} */
 
 .categoryOptions p {
   margin-top: 5px;
@@ -147,25 +126,15 @@ body {
   font-size: 16px;
 }
 
-.descriptionErrorMessage, .descriptionErrorMessageIcon {
-  display: flex;
-  color: #EFB7EC;
-  max-height: 20px;
-  align-items:baseline;
-  margin-right: 10px;
-  font-size: 15px;
-}
-
-.minutesErrorMessage, .minutesErrorMessageIcon {
-  display: flex;
-  color: #EFB7EC;
-  max-height: 20px;
-  align-items:baseline;
-  margin-right: 10px;
-  font-size: 15px;
-}
-
-.secondsErrorMessage, .secondsErrorMessageIcon {
+.descriptionErrorMessage,
+.descriptionErrorMessageIcon,
+.categoryErrorMessage,
+.categoryErrorMessageIcon,
+.minutesErrorMessage,
+.minutesErrorMessageIcon,
+.secondsErrorMessage,
+.secondsErrorMessageIcon
+ {
   display: flex;
   color: #EFB7EC;
   max-height: 20px;
@@ -179,50 +148,37 @@ body {
   margin-bottom: 30px;
 }
 
-.minutesTextLine {
-    background-color: transparent;
-    color: #FFF;
-    outline: none;
-    outline-style: none;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: solid #eeeeee 1px;
-    padding: 3px 10px;
-    width: 75%;
-    font-size: 16px;
-}
-
+.minutesTextLine,
 .secondsTextLine {
   background-color: transparent;
   color: #FFF;
   outline: none;
   outline-style: none;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-bottom: solid #eeeeee 1px;
+  border-bottom: solid #eeeeee;
+  border-width: 0 0 1px 0;
   padding: 3px 10px;
   width: 75%;
   font-size: 16px;
 }
 
-.minutes {
+.minutes,
+.seconds {
   width: 50%;
 }
 
-.seconds {
-  width: 50%;
+.startActitivyButtonArea {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .startActivityButton {
   border: 0px;
   border-radius: 5px;
-  float: right;
   padding: 10px 50px;
   margin-bottom: 20px;
   font-weight: 300;
   font-size: 16px;
+  cursor: pointer;
 }
 
 .loggedActivities {
@@ -243,5 +199,5 @@ body {
   border: 3px solid white;
   background-color: #00000000;
   color: white;
+  cursor: pointer;
 }
- 
