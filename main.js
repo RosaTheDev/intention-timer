@@ -9,6 +9,8 @@ var startActivityButton = document.querySelector('.startActivityButton');
 var userInputGoalDescription = document.querySelector('.goalsTextLine');
 var userInputMinutes = document.querySelector('.minutesTextLine');
 var userInputSeconds = document.querySelector('.secondsTextLine');
+var categoryErrorMessage = document.querySelector('.categoryErrorMessage');
+var categoryErrorMessageIcon = document.querySelector('.categoryErrorMessageIcon');
 var descriptionErrorMessage = document.querySelector('.descriptionErrorMessage');
 var descriptionErrorMessageIcon = document.querySelector('.descriptionErrorMessageIcon');
 var minutesErrorMessage = document.querySelector('.minutesErrorMessage');
@@ -22,7 +24,6 @@ var secondaryLeftPanelTitle = document.querySelector('.secondaryLeftPanelTitle')
 var goalDescriptionTimerView = document.querySelector('.goalDescriptionTimerView')
 var timerInput = document.querySelector('.timerInput');
 var timerColor = document.querySelector('.timerButton');
-
 var userInputCategory;
 var loggedUserInput = [];
 var currentActivity;
@@ -94,17 +95,21 @@ function defaultColor() {
 
 function formValidation() {
   resetErrorMessage()
-  if (!userInputGoalDescription.value) {
-     descriptionErrorMessageIcon.classList.remove("hidden");
-     descriptionErrorMessage.classList.remove("hidden");
+  if (!userInputCategory) {
+    categoryErrorMessageIcon.classList.remove("hidden");
+    categoryErrorMessage.classList.remove("hidden");
+    return false
+  } else if (!userInputGoalDescription.value) {
+    descriptionErrorMessageIcon.classList.remove("hidden");
+    descriptionErrorMessage.classList.remove("hidden");
     return false
   } else if (!userInputMinutes.value) {
-     minutesErrorMessageIcon.classList.remove("hidden");
-     minutesErrorMessage.classList.remove("hidden");
+    minutesErrorMessageIcon.classList.remove("hidden");
+    minutesErrorMessage.classList.remove("hidden");
     return false
   } else if (!userInputSeconds.value) {
-     secondsErrorMessageIcon.classList.remove("hidden");
-     secondsErrorMessage.classList.remove("hidden");
+    secondsErrorMessageIcon.classList.remove("hidden");
+    secondsErrorMessage.classList.remove("hidden");
     return false
    } else {
      return true
@@ -112,6 +117,8 @@ function formValidation() {
 };
 
 function resetErrorMessage(){
+  categoryErrorMessageIcon.classList.add("hidden");
+  categoryErrorMessage.classList.add("hidden");
   descriptionErrorMessageIcon.classList.add("hidden");
   descriptionErrorMessage.classList.add("hidden");
   minutesErrorMessageIcon.classList.add("hidden");
