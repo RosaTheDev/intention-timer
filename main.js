@@ -27,9 +27,13 @@ var logActivityButton = document.querySelector('.logActivityButton');
 var userInputCategory;
 var loggedUserInput = [];
 var currentActivity;
-var savedActivies = [];
+var savedActivities = [];
 var totalTime = (userInputMinutes * 60) + userInputSeconds;
-
+var noLoggedActivities = document.querySelector('.noLoggedActivities');
+var loggedActivities = document.querySelector('.loggedActivities');
+var cardHolder = document.querySelector('.cardHolder');
+var createNewActivityButton = document.querySelector('.createNewActivityButton');
+var newActivityView = document.querySelector('.newActivityView');
 
 studyButton.addEventListener('click', changeStudyButtonColor)
 meditateButton.addEventListener('click', changeMeditateButtonColor)
@@ -37,13 +41,40 @@ exerciseButton.addEventListener('click', changeExerciseButtonColor)
 startActivityButton.addEventListener('click', switchTimerView)
 timerColor.addEventListener('click', countDown)
 logActivityButton.addEventListener('click', logActivity)
+createNewActivityButton.addEventListener('click', createNewActivity)
+
+function createNewActivity() {
+  hide([secondaryLeftPanelTitle, createNewActivityButton, timerView, newActivityView])
+  show([mainBox, defaultLeftPanelTitle])
+  userInputSeconds.value = '';
+  userInputMinutes.value = '';
+  userInputGoalDescription.value = '';
+  currentActivity = null;
+  defaultColor();
+  timerColor.disabled = false;
+}
 
 function logActivity() {
-  ////it adds the object from the currentActivity variable to savedAcivities array
-  console.log("button works")
-  savedActivies.unshift(currentActivity)
-  console.log(savedActivies)
-  ////past activites updates with a card showing object info
+  savedActivities.unshift(currentActivity)
+  cardHolder.innerHTML = "";
+  for (var i = 0; i < savedActivities.length; i++){
+    cardHolder.innerHTML += `
+    <div class="cardInfo ${[i]}">
+      <div class="card">
+        <div class="topCardInfo">
+          <p><strong>${savedActivities[i].category}</strong>
+          <p>${savedActivities[i].minutes} MIN
+        </div>
+        <div class="bottomCardInfo">
+          <p>${savedActivities[i].description}
+        </div>
+      </div>
+      <div class="cardColor">
+      </div>
+    </div>`;
+  }
+  hide([timerView, noLoggedActivities])
+  show([newActivityView, createNewActivityButton, loggedActivities])
 }
 
 function countDown() {
@@ -69,7 +100,7 @@ function hide(elements) {
 
 function changeStudyButtonColor() {
   defaultColor();
-  userInputCategory = "study";
+  userInputCategory = "STUDY";
   studyButton.style.border = "1px solid #B3FD78";
   studyButton.style.color = '#B3FD78';
   timerColor.style.border = "3px solid #B3FD78";
@@ -78,7 +109,7 @@ function changeStudyButtonColor() {
 
 function changeMeditateButtonColor() {
   defaultColor();
-  userInputCategory = "meditate";
+  userInputCategory = "MEDITATE";
   meditateButton.style.border = 'solid 1px #C278FD';
   meditateButton.style.color = '#C278FD';
   timerColor.style.border = "3px solid #C278FD";
@@ -87,7 +118,7 @@ function changeMeditateButtonColor() {
 
 function changeExerciseButtonColor() {
   defaultColor();
-  userInputCategory = "exercise";
+  userInputCategory = "EXERCISE";
   exerciseButton.style.border = 'solid 1px #FD8078';
   exerciseButton.style.color = '#FD8078';
   timerColor.style.border = "3px solid #FD8078";

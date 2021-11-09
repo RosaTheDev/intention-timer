@@ -19,6 +19,10 @@
           </div>
           <button class="timerButton">START</button>
           <button class="logActivityButton hidden">LOG ACTIVITY</button>
+
+        </div>
+        <div class="newActivityView hidden">
+          <button class="createNewActivityButton hidden">CREATE A NEW ACTIVITY</button>
         </div>
         <div class="mainBox">
           <h1>Select a category:</h1>
@@ -72,7 +76,10 @@
       <section class="rightPanel">
         <div class="rightPanelTitle"><h1>Past Activities</h1>
         </div>
-        <div class="loggedActivities">You haven't logged any activities yet. <br> Complete the form to the left to get started!
+        <div class="noLoggedActivities">You haven't logged any activities yet. <br> Complete the form to the left to get started!
+        </div>
+        <div class="loggedActivities hidden">
+          <div class="cardHolder"></div>
         </div>
       </section>
     </section>

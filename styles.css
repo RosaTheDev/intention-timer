@@ -30,6 +30,7 @@ body {
   min-height: 500px;
 }
 
+.newActivityView,
 .timerView {
   display: flex;
   flex-direction: column;
@@ -166,6 +167,7 @@ body {
   justify-content: flex-end;
 }
 
+.createNewActivityButton,
 .startActivityButton,
 .logActivityButton {
   border: 0px;
@@ -177,8 +179,45 @@ body {
   cursor: pointer;
 }
 
-.loggedActivities {
+.noLoggedActivities {
   text-align: center;
+}
+
+.cardHolder {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+
+}
+
+.cardInfo{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  color: #FFF;
+  background: #46424D;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 10px 5px 5px #26222D;
+  min-height: 50px;
+  width: 90%;
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+.cardInfo p {
+  margin: 0px;
+}
+
+.cardColor {
+  height: 25px;
+  width: 3px;
+  background-color: #B3FD78
+}
+
+.topCardInfo {
+  margin-bottom: 15px;
 }
 
 .hidden {
